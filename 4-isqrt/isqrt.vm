@@ -1,3 +1,27 @@
-function isqrt 2
+function isqrt 1
+    push constant 0
+    pop local 0
 
+label ISQRT_LOOP_START
+    push local 0
+    push constant 1
+    add
+    push local 0
+    push constant 1
+    add
+    call mult 2
 
+    push argument 0
+    gt
+    if-goto ISQRT_LOOP_END
+
+    push local 0
+    push constant 1
+    add
+    pop local 0
+
+    goto ISQRT_LOOP_START
+
+label ISQRT_LOOP_END
+    push local 0
+    return

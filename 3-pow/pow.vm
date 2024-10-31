@@ -1,0 +1,28 @@
+function pow 2
+    push constant 1
+    pop local 0
+
+    push argument 1
+    pop local 1
+
+label POW_LOOP_START
+    push local 1
+    push constant 0
+    eq
+    if-goto POW_LOOP_END
+
+    push local 0
+    push argument 0
+    call mult 2
+    pop local 0
+
+    push local 1
+    push constant 1
+    sub
+    pop local 1
+
+    goto POW_LOOP_START
+
+label POW_LOOP_END
+    push local 0
+    return
